@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>22 Minds</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="football.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">&#9917;</span><div><h1>22 Minds</h1><p>A football match where all 22 players think for themselves</p></div></div>
+</header>
+
+<main class="grid fb">
+  <!-- LEFT -->
+  <aside class="col left">
+    <section class="card" id="setupCard">
+      <h2>Match setup</h2>
+      <label class="field"><span>Match length</span>
+        <select id="lenSel"><option value="60">Quick (2 x 1 min)</option><option value="120" selected>Standard (2 x 2 min)</option><option value="240">Long (2 x 4 min)</option></select>
+      </label>
+      <label class="field"><span>Match type</span>
+        <select id="modeSel"><option value="league" selected>League (draws allowed)</option><option value="ko">Knockout (extra time + penalties)</option></select>
+      </label>
+      <button id="startBtn" class="btn primary">Kick off</button>
+    </section>
+
+    <section class="card" id="lineCard" hidden>
+      <h2>Teams on the pitch</h2>
+      <div id="lineups"></div>
+    </section>
+
+    <section class="card" id="statsCard" hidden>
+      <h2>Match stats</h2>
+      <div id="matchStats"></div>
+    </section>
+
+    <section class="card" id="telCard" hidden>
+      <h2>Model telemetry</h2>
+      <div id="stats"></div>
+    </section>
+
+    <section class="card">
+      <h2>Laws of the game</h2>
+      <ul class="rules">
+        <li><b>Teams:</b> 11 v 11 (10 outfield players + a goalkeeper), 4-4-2.</li>
+        <li><b>Match:</b> two halves of 45 minutes plus stoppage time for fouls, cards and goals. Teams change ends at half time.</li>
+        <li><b>Goal:</b> the ball crosses the line between the posts and under the bar. The conceding team kicks off.</li>
+        <li><b>Out of play:</b> throw-in to the other team; goal kick or corner depending on who touched it last.</li>
+        <li><b>Offside:</b> in the opponent half and ahead of the second-last defender when the pass is played. Not from a throw-in, goal kick or corner.</li>
+        <li><b>Fouls:</b> free kick; inside the box a penalty. Yellow and red cards; two yellows is a red. Sent-off players are not replaced.</li>
+        <li><b>Set pieces:</b> opponents stand 9.15 m back at free kicks, throw-ins and corners.</li>
+        <li><b>Knockout:</b> if level after 90 minutes, 2 x 15 minutes of extra time, then a penalty shoot-out.</li>
+        <li class="no"><b>Not implemented:</b> substitutions, VAR, advantage, handball, injuries, the back-pass rule.</li>
+      </ul>
+    </section>
+  </aside>
+
+  <!-- CENTER -->
+  <section class="col center">
+    <div class="canvas-wrap pitch-wrap">
+      <canvas id="pitch"></canvas>
+      <div id="banner" class="banner"></div>
+      <div id="overlay" class="overlay" hidden></div>
+    </div>
+    <div class="commentary" id="commentary"></div>
+  </section>
+
+  <!-- RIGHT -->
+  <aside class="col right">
+    <section class="card"><h2><span id="tnameA">Blue Titans</span> <span class="src" id="srcA"></span></h2><div id="decA" class="dec empty">Waiting for kick-off…</div></section>
+    <section class="card"><h2><span id="tnameB">Gold Royals</span> <span class="src" id="srcB"></span></h2><div id="decB" class="dec empty">Waiting for kick-off…</div></section>
+  </aside>
+</main>
+
+<script src="football.js"></script>
+</body>
+</html>
